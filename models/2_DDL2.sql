@@ -11,6 +11,10 @@ ALTER TABLE disciplinas RENAME TO disciplina;
 -- adição de colunas
 ALTER TABLE professor ADD pro_senha VARCHAR(20) NOT NULL;
 
+-- alteração de colunas
+ALTER TABLE professor ALTER COLUMN pro_senha TYPE INTEGER USING pro_senha::INTEGER; -- muda o tipo de dado
+ALTER TABLE professor RENAME COLUMN pro_senha TO senha;
+
 -- remoção de colunas
 ALTER TABLE professor DROP COLUMN pro_senha;
 
