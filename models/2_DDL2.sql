@@ -9,6 +9,8 @@ ALTER TABLE cursos RENAME TO curso;
 ALTER TABLE disciplinas RENAME TO disciplina;
 
 -- adição de colunas
+-- alguns SGBDs permitem o comando AFTER ou FIRST para adicionar
+-- a coluna na posição que você quer, mas o PostgreSQL não permite
 ALTER TABLE professor ADD pro_senha VARCHAR(20) NOT NULL;
 
 -- alteração de colunas
