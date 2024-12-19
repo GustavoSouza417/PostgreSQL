@@ -18,7 +18,7 @@ ALTER TABLE professor ALTER COLUMN pro_senha TYPE INTEGER USING pro_senha::INTEG
 ALTER TABLE professor RENAME COLUMN pro_senha TO senha;
 
 -- remoção de colunas
-ALTER TABLE professor DROP COLUMN pro_senha;
+ALTER TABLE professor DROP COLUMN senha;
 
 -- removeria todos os dados das tabelas, caso tivessem dados
 -- o CASCADE serve para forçar o TRUNCATE, pois tabelas que tem chave estrangeira não podem ser truncadas

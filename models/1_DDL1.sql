@@ -28,7 +28,7 @@ CREATE TABLE professores
     pro_nome VARCHAR(60) NOT NULL,
     pro_email VARCHAR(60) UNIQUE NOT NULL,
 
-    pro_coordenador INT NOT NULL,
+    pro_coordenador INT NULL,
     CONSTRAINT fk_pro_coordenador FOREIGN KEY (pro_coordenador) REFERENCES professores (pro_id)
 );
 
