@@ -8,6 +8,12 @@ ALTER TABLE professores RENAME TO professor;
 ALTER TABLE cursos RENAME TO curso;
 ALTER TABLE disciplinas RENAME TO disciplina;
 
+-- adição de colunas
+ALTER TABLE professor ADD pro_senha VARCHAR(20) NOT NULL;
+
+-- remoção de colunas
+ALTER TABLE professor DROP COLUMN pro_senha;
+
 -- removeria todos os dados das tabelas, caso tivessem dados
 -- o CASCADE serve para forçar o TRUNCATE, pois tabelas que tem chave estrangeira não podem ser truncadas
 TRUNCATE TABLE disciplina CASCADE;
