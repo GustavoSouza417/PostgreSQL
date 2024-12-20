@@ -17,25 +17,25 @@ UPDATE curso
 SET cur_nome = 'Teste'
 WHERE cur_id = 1;
 
--- exibe informações sobre as tabelas, colunas e ALIAS utilizados
+-- exibe informações sobre as tabelas, colunas e ALIAS utilizados (não executa)
 EXPLAIN VERBOSE
 UPDATE curso
 SET cur_nome = 'Teste'
 WHERE cur_id = 1;
 
--- exibe igual ao EXPLAIN sozinho, mas sem visualização de custos (tempo gasto para execução)
+-- exibe igual ao EXPLAIN sozinho, mas sem visualização de custos (tempo gasto para execução) - (não executa)
 EXPLAIN (COSTS OFF)
 UPDATE curso
 SET cur_nome = 'Teste'
 WHERE cur_id = 1;
 
--- exibe o consumo de buffers durante a execução
+-- exibe o consumo de buffers durante a execução (não executa)
 EXPLAIN (BUFFERS)
 UPDATE curso
 SET cur_nome = 'Teste'
 WHERE cur_id = 1;
 
--- você pode combiná-los para efetuar a execução
+-- você pode combiná-los para efetuar a execução (não executa)
 EXPLAIN (ANALYZE, VERBOSE, BUFFERS)
 UPDATE curso
 SET cur_nome = 'Teste'
