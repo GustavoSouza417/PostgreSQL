@@ -22,3 +22,6 @@ GRANT UPDATE ON curso TO Ferdinando;
 
 -- dá acesso total ao banco de dados ao usuário "Irineu"
 ALTER ROLE Irineu WITH SUPERUSER;
+
+-- você também pode configurar permissões de usuários sobre Views, Procedures e afins
+-- você também pode configurar permissões sobre as próprias Views, Procedures e afins
