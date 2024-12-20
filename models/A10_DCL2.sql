@@ -24,6 +24,8 @@ CREATE USER user6;
 ALTER ROLE administrador WITH SUPERUSER;
 
 -- configuração do padrão de usuário "técnico"
+GRANT CONNECT ON DATABASE escola TO tecnico;
+GRANT INSERT, SELECT ON ALL TABLES IN SCHEMA public TO tecnico;
 
 
 -- atribuindo as ROLEs aos usuários
