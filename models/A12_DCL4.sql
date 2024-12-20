@@ -39,3 +39,12 @@ REVOKE TRIGGER ON professor FROM Julia;
 
 -- você pode remover várias permissões de uma vez
 REVOKE INSERT, SELECT, UPDATE, DELETE, TRUNCATE, REFERENCES, TRIGGER ON curso FROM Julia;
+
+-- ao invés de escrever manualmente todos os privilégios
+-- sabendo que tabelas possuem apenas as permissões acima
+-- você pode usar "ALL PRIVILEGES"
+-- que dará o mesmo resultado
+GRANT ALL PRIVILEGES ON professor TO Julia;
+
+-- o mesmo serve para o REVOKE
+REVOKE ALL PRIVILEGES ON curso FROM Julia;
