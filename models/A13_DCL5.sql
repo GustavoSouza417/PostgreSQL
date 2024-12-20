@@ -1,1 +1,0 @@
--- verificar as permissões de usuários

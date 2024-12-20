@@ -1,37 +1,24 @@
--- ROLEs são criadas para gerenciar permissões
--- ROLEs são atribuídas para usuários
--- Assim como usuários, ROLEs também não possuem nenhuma permissão quando criadas
--- portanto, é possível usar REVOKE nelas, mas aqui não será usado por não haver necessidade
+-- apesar do PostgreSQL ainda aceitar o uso de USER
+-- a partir de sua versão 8, recomenda-se a utilização de ROLE
+-- pois ROLE possui mais categorias de gerenciamento
+-- a sintaxe é a mesma para ambos, tanto para o já visto
+-- quanto para os conteúdos dos arquivos a seguir
 
--- você pode atribuir múltiplas ROLEs para usuários
--- se as permissões das ROLEs forem conflitantes
--- o PostgreSQL sempre optará pela permissão de concessão
+-- criação de usuários
+CREATE ROLE Ferdinando;
+CREATE ROLE Gabrielzinho;
+CREATE ROLE Irineu;
 
--- criando os padrões de usuário
-CREATE ROLE administrador;
-CREATE ROLE tecnico;
-CREATE ROLE cliente;
+-- você também pode adicionar senhas aos usuários
+CREATE ROLE Patricia PASSWORD 'patricia';
+CREATE ROLE Roberta PASSWORD 'roberta';
+CREATE ROLE Priscila PASSWORD 'priscila';
 
--- criando os usuários
-CREATE USER user1;
-CREATE USER user2;
-CREATE USER user3;
-CREATE USER user4;
-CREATE USER user5;
-CREATE USER user6;
+-- você também pode conceder acesso de super usuário, que possui todas as permissões
+CREATE ROLE Jonas PASSWORD '123' SUPERUSER;
 
--- configuração do padrão de usuário "administrador"
-ALTER ROLE administrador WITH SUPERUSER;
+-- você também pode negar o acesso de super usuário
+CREATE ROLE Bianca PASSWORD '234' NOSUPERUSER;
 
--- configuração do padrão de usuário "técnico"
-GRANT CONNECT ON DATABASE escola TO tecnico;
-GRANT INSERT, SELECT ON ALL TABLES IN SCHEMA public TO tecnico;
-
-
--- atribuindo as ROLEs aos usuários
-GRANT administrador TO user1;
-GRANT administrador TO user2;
-GRANT tecnico TO user3;
-GRANT tecnico TO user4;
-GRANT cliente TO user5;
-GRANT cliente TO user6;
+-- você pode tornar usuários em super usuários após criá-los também
+ALTER ROLE Irineu WITH SUPERUSER;
