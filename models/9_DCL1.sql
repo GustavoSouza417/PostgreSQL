@@ -1,3 +1,7 @@
+-- observação: todo usuário, ao ser criado, não possui privilégios
+-- logo, a remoção de privilégios a seguir é demonstrativa e não surte efeitos
+-- já que não há privilégios para se remover
+
 -- criação de usuários faz parte do DDL
 -- o que importa aqui é a concessão e remoção de permissões
 CREATE USER Ferdinando;

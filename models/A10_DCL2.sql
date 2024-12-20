@@ -19,6 +19,7 @@ ALTER ROLE administrador WITH SUPERUSER;
 
 -- configuração do padrão de usuário "técnico"
 
+
 -- atribuindo as ROLEs aos usuários
 GRANT administrador TO user1;
 GRANT administrador TO user2;
