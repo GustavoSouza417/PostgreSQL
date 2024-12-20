@@ -21,6 +21,21 @@ GRANT INSERT ON professor TO Julia;
 GRANT SELECT ON professor TO Julia;
 GRANT UPDATE ON professor TO Julia;
 GRANT DELETE ON professor TO Julia;
+GRANT TRUNCATE ON professor TO Julia; -- pode truncar a tabela
+GRANT REFERENCES ON professor TO Julia; -- pode usar essa tabela como chave estrangeira em outras tabelas
+GRANT TRIGGER ON professor TO Julia; -- pode usar essa tabela em Triggers
 
 -- você pode conceder várias permissões de uma vez
-GRANT INSERT, SELECT, UPDATE, DELETE ON curso TO Julia;
+GRANT INSERT, SELECT, UPDATE, DELETE, TRUNCATE, REFERENCES, TRIGGER ON curso TO Julia;
+
+-- removendo permissões com o REVOKE
+REVOKE INSERT ON professor FROM Julia;
+REVOKE SELECT ON professor FROM Julia;
+REVOKE UPDATE ON professor FROM Julia;
+REVOKE DELETE ON professor FROM Julia;
+REVOKE TRUNCATE ON professor FROM Julia;
+REVOKE REFERENCES ON professor FROM Julia;
+REVOKE TRIGGER ON professor FROM Julia;
+
+-- você pode remover várias permissões de uma vez
+REVOKE INSERT, SELECT, UPDATE, DELETE, TRUNCATE, REFERENCES, TRIGGER ON curso FROM Julia;
