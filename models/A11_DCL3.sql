@@ -1,32 +1,29 @@
--- você pode atribuir múltiplas ROLEs para usuários
--- se as permissões das ROLEs forem conflitantes
--- o PostgreSQL sempre optará pela permissão de concessão
+-- quando um usuário é criado, ele tem algumas permissões padrões já ativadas
+-- essas permissões são o INHERIT e o LOGIN
+-- INHERIT: quer dizer que o usuário pode herdar ROLEs
+-- LOGIN: quer dizer que o usuário pode logar
+-- de resto, por padrão, o usuário não tem nenhum privilégio
+-- você deve atribuir o restante para ele
 
--- criando os padrões de usuário
-CREATE ROLE administrador;
-CREATE ROLE tecnico;
-CREATE ROLE cliente;
+-- criação do usuário
+CREATE ROLE algumUsuarioAi PASSWORD '890' NOSUPERUSER NOINHERIT;
 
--- criando os usuários
-CREATE USER user1;
-CREATE USER user2;
-CREATE USER user3;
-CREATE USER user4;
-CREATE USER user5;
-CREATE USER user6;
+-- remove todas as permissões do usuário "Ferdinando"
+REVOKE CONNECT ON DATABASE escola FROM algumUsuarioAi;
+REVOKE ALL PRIVILEGES ON ALL TABLES IN SCHEMA public FROM algumUsuarioAi;
+REVOKE ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA public FROM algumUsuarioAi;
+REVOKE ALL PRIVILEGES ON ALL FUNCTIONS IN SCHEMA public FROM algumUsuarioAi;
 
--- configuração do padrão de usuário "administrador"
-ALTER ROLE administrador WITH SUPERUSER;
+-- remove todas as permissões do usuário "Gabrielzinho"
+REVOKE ALL PRIVILEGES ON ALL TABLES IN SCHEMA public FROM Gabrielzinho;
+REVOKE ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA public FROM Gabrielzinho;
+REVOKE ALL PRIVILEGES ON ALL FUNCTIONS IN SCHEMA public FROM Gabrielzinho;
 
--- configuração do padrão de usuário "técnico"
-GRANT CONNECT ON DATABASE escola TO tecnico;
-GRANT INSERT, SELECT ON ALL TABLES IN SCHEMA public TO tecnico;
+-- permissões que o usuário "Ferdinando" possui
+GRANT CONNECT ON DATABASE escola TO Ferdinando;
+GRANT INSERT ON curso TO Ferdinando;
+GRANT DELETE ON curso TO Ferdinando;
+GRANT UPDATE ON curso TO Ferdinando;
 
-
--- atribuindo as ROLEs aos usuários
-GRANT administrador TO user1;
-GRANT administrador TO user2;
-GRANT tecnico TO user3;
-GRANT tecnico TO user4;
-GRANT cliente TO user5;
-GRANT cliente TO user6;
+-- você também pode configurar permissões de usuários sobre Views, Procedures e afins
+-- você também pode configurar permissões sobre as próprias Views, Procedures e afins
