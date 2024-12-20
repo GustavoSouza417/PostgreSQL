@@ -20,5 +20,11 @@ CREATE ROLE Jonas PASSWORD '123' SUPERUSER;
 -- você também pode negar o acesso de super usuário
 CREATE ROLE Bianca PASSWORD '234' NOSUPERUSER;
 
+-- você pode criar usuários com validade infinita
+CREATE ROLE Helena PASSWORD '555' NOSUPERUSER VALID UNTIL 'INFINITY';
+
+-- você pode criar usuários com validade finita
+CREATE ROLE Raphael PASSWORD '555' NOSUPERUSER VALID UNTIL '21/12/2024';
+
 -- você pode tornar usuários em super usuários após criá-los também
 ALTER ROLE Irineu WITH SUPERUSER;

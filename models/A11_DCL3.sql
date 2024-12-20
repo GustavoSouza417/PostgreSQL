@@ -5,10 +5,12 @@
 -- de resto, por padrão, o usuário não tem nenhum privilégio
 -- você deve atribuir o restante para ele
 
--- criação do usuário
+-- criação do usuários
 CREATE ROLE algumUsuarioAi PASSWORD '890' NOSUPERUSER NOINHERIT;
+CREATE ROLE outroUsuarioAi PASSWORD '111' NOSUPERUSER NOINHERIT;
+CREATE ROLE maisUmUsuarioAi PASSWORD '222' NOSUPERUSER NOINHERIT;
 
--- remove todas as permissões do usuário "Ferdinando"
+-- remove todas as permissões do usuário "algumUsuarioAi"
 REVOKE CONNECT ON DATABASE escola FROM algumUsuarioAi;
 REVOKE ALL PRIVILEGES ON ALL TABLES IN SCHEMA public FROM algumUsuarioAi;
 REVOKE ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA public FROM algumUsuarioAi;
