@@ -17,3 +17,7 @@ INSERT INTO professor (pro_nome, pro_email, pro_coordenador) VALUES
 ('Professor9', 'professor9@gmail.com', 3);
 
 -- inserindo os cursos
+INSERT INTO curso (cur_nome, pro_coordenador_id) VALUES
+('Análise e Desenvolvimento de Sistemas', 1),
+('Segurança da Informação', 2),
+('Ciência de Dados', 3);
