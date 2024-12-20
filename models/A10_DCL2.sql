@@ -1,5 +1,11 @@
 -- ROLEs são criadas para gerenciar permissões
 -- ROLEs são atribuídas para usuários
+-- Assim como usuários, ROLEs também não possuem nenhuma permissão quando criadas
+-- portanto, é possível usar REVOKE nelas, mas aqui não será usado por não haver necessidade
+
+-- você pode atribuir múltiplas ROLEs para usuários
+-- se as permissões das ROLEs forem conflitantes
+-- o PostgreSQL sempre optará pela permissão de concessão
 
 -- criando os padrões de usuário
 CREATE ROLE administrador;
