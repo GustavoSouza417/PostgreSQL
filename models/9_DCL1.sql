@@ -1,12 +1,28 @@
--- observação: todo usuário, ao ser criado, não possui privilégios
--- logo, a remoção de privilégios a seguir é demonstrativa e não surte efeitos
--- já que não há privilégios para se remover
+-- criação de usuários e regras fazem parte do DDL
+-- mas isso está relacionado com DCL
 
--- criação de usuários faz parte do DDL
--- o que importa aqui é a concessão e remoção de permissões
+-- criação de usuários
 CREATE USER Ferdinando;
 CREATE USER Gabrielzinho;
 CREATE USER Irineu;
+
+-- você também pode adicionar senhas aos usuários
+CREATE USER Patricia PASSWORD 'patricia';
+CREATE USER Roberta PASSWORD 'roberta';
+CREATE USER Priscila PASSWORD 'priscila';
+
+-- você também pode conceder acesso de super usuário, que possui todas as permissões
+CREATE USER Jonas PASSWORD '123' SUPERUSER;
+
+-- você também pode negar o acesso de super usuário
+CREATE USER Bianca PASSWORD '234' NOSUPERUSER;
+
+-- você pode tornar usuários em super usuários após criá-los também
+ALTER USER Irineu WITH SUPERUSER;
+
+
+
+
 
 -- remove todas as permissões do usuário "Ferdinando"
 REVOKE ALL PRIVILEGES ON ALL TABLES IN SCHEMA public FROM Ferdinando;
@@ -24,8 +40,7 @@ GRANT INSERT ON curso TO Ferdinando;
 GRANT DELETE ON curso TO Ferdinando;
 GRANT UPDATE ON curso TO Ferdinando;
 
--- dá acesso total ao banco de dados ao usuário "Irineu"
-ALTER ROLE Irineu WITH SUPERUSER;
+
 
 -- você também pode configurar permissões de usuários sobre Views, Procedures e afins
 -- você também pode configurar permissões sobre as próprias Views, Procedures e afins
