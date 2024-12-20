@@ -16,6 +16,19 @@ ALTER ROLE algumUsuarioAi NOSUPERUSER;
 ALTER ROLE algumUsuarioAi NOINHERIT;
 ALTER ROLE algumUsuarioAi VALID UNTIL 'INFINITY';
 ALTER ROLE algumUsuarioAi NOLOGIN; -- remove a permissão de LOGIN
+ALTER ROLE algumUsuarioAi NOCREATEDB; -- não cria bancos de dados
+ALTER ROLE algumUsuarioAi NOCREATEROLE; -- não cria ROLEs
+
+-- inversão das permissões demonstradas acima
+-- esse "WITH" é opcional, tanto que acima não utilizei
+ALTER ROLE algumUsuarioAi WITH PASSWORD NULL;
+ALTER ROLE algumUsuarioAi WITH SUPERUSER; 
+ALTER ROLE algumUsuarioAi WITH INHERIT;
+ALTER ROLE algumUsuarioAi WITH VALID UNTIL '20/12/2024';
+ALTER ROLE algumUsuarioAi WITH LOGIN;
+ALTER ROLE algumUsuarioAi WITH CREATEDB;
+ALTER ROLE algumUsuarioAi WITH CREATEROLE;
+
  
 
 

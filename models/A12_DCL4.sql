@@ -1,32 +1,26 @@
--- você pode atribuir múltiplas ROLEs para usuários
--- se as permissões das ROLEs forem conflitantes
--- o PostgreSQL sempre optará pela permissão de concessão
+-- GRANT: concede permissões
+-- sempre usa o TO
 
--- criando os padrões de usuário
-CREATE ROLE administrador;
-CREATE ROLE tecnico;
-CREATE ROLE cliente;
+-- REVOKE: nega permissões
+-- sempre usa o FROM
 
--- criando os usuários
-CREATE USER user1;
-CREATE USER user2;
-CREATE USER user3;
-CREATE USER user4;
-CREATE USER user5;
-CREATE USER user6;
+-- criação de usuário
+CREATE ROLE Julia;
 
--- configuração do padrão de usuário "administrador"
-ALTER ROLE administrador WITH SUPERUSER;
+-- permissões gerais
+ALTER ROLE Julia PASSWORD '12345678';
+ALTER ROLE Julia NOINHERIT;
+ALTER ROLE Julia NOSUPERUSER;
+ALTER ROLE Julia VALID UNTIL 'INFINITY';
+ALTER ROLE Julia LOGIN;
+ALTER ROLE Julia NOCREATEDB;
+ALTER ROLE Julia NOCREATEROLE;
 
--- configuração do padrão de usuário "técnico"
-GRANT CONNECT ON DATABASE escola TO tecnico;
-GRANT INSERT, SELECT ON ALL TABLES IN SCHEMA public TO tecnico;
+-- concedendo permissões com GRANT na tabela de professores
+GRANT INSERT ON professor TO Julia;
+GRANT SELECT ON professor TO Julia;
+GRANT UPDATE ON professor TO Julia;
+GRANT DELETE ON professor TO Julia;
 
-
--- atribuindo as ROLEs aos usuários
-GRANT administrador TO user1;
-GRANT administrador TO user2;
-GRANT tecnico TO user3;
-GRANT tecnico TO user4;
-GRANT cliente TO user5;
-GRANT cliente TO user6;
+-- você pode conceder várias permissões de uma vez
+GRANT INSERT, SELECT, UPDATE, DELETE ON curso TO Julia;
