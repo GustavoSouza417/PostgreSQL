@@ -5,26 +5,26 @@
 -- quanto para os conteúdos dos arquivos a seguir
 
 -- criação de usuários
-CREATE ROLE Ferdinando;
-CREATE ROLE Gabrielzinho;
-CREATE ROLE Irineu;
+CREATE ROLE Ferdinando2;
+CREATE ROLE Gabrielzinho2;
+CREATE ROLE Irineu2;
 
 -- você também pode adicionar senhas aos usuários
-CREATE ROLE Patricia PASSWORD 'patricia';
-CREATE ROLE Roberta PASSWORD 'roberta';
-CREATE ROLE Priscila PASSWORD 'priscila';
+CREATE ROLE Patricia2 PASSWORD 'patricia';
+CREATE ROLE Roberta2 PASSWORD 'roberta';
+CREATE ROLE Priscila2 PASSWORD 'priscila';
 
 -- você também pode conceder acesso de super usuário, que possui todas as permissões
-CREATE ROLE Jonas PASSWORD '123' SUPERUSER;
+CREATE ROLE Jonas2 PASSWORD '123' SUPERUSER;
 
 -- você também pode negar o acesso de super usuário
-CREATE ROLE Bianca PASSWORD '234' NOSUPERUSER;
+CREATE ROLE Bianca2 PASSWORD '234' NOSUPERUSER;
 
 -- você pode criar usuários com validade infinita
-CREATE ROLE Helena PASSWORD '555' NOSUPERUSER VALID UNTIL 'INFINITY';
+CREATE ROLE Helena2 PASSWORD '555' NOSUPERUSER VALID UNTIL 'INFINITY';
 
 -- você pode criar usuários com validade finita
-CREATE ROLE Raphael PASSWORD '555' NOSUPERUSER VALID UNTIL '21/12/2024';
+CREATE ROLE Raphael2 PASSWORD '555' NOSUPERUSER VALID UNTIL '21/12/2024';
 
 -- você pode tornar usuários em super usuários após criá-los também
-ALTER ROLE Irineu WITH SUPERUSER;
+ALTER ROLE Irineu2 WITH SUPERUSER;

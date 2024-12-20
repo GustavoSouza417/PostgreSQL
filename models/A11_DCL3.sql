@@ -6,9 +6,22 @@
 -- você deve atribuir o restante para ele
 
 -- criação do usuários
-CREATE ROLE algumUsuarioAi PASSWORD '890' NOSUPERUSER NOINHERIT;
-CREATE ROLE outroUsuarioAi PASSWORD '111' NOSUPERUSER NOINHERIT;
-CREATE ROLE maisUmUsuarioAi PASSWORD '222' NOSUPERUSER NOINHERIT;
+CREATE ROLE algumUsuarioAi;
+
+-- você pode alterar os dados do usuário e anexar suas informações posteriormente
+-- isso pode ser feito com todos os dados que são atribuidos na criação do objeto
+-- o resto precisa ser feito separadamente, com REVOKE ou GRANT
+ALTER ROLE algumUsuarioAi PASSWORD '980';
+ALTER ROLE algumUsuarioAi NOSUPERUSER; 
+ALTER ROLE algumUsuarioAi NOINHERIT;
+ALTER ROLE algumUsuarioAi VALID UNTIL 'INFINITY';
+ALTER ROLE algumUsuarioAi NOLOGIN; -- remove a permissão de LOGIN
+ 
+
+
+
+
+
 
 -- remove todas as permissões do usuário "algumUsuarioAi"
 REVOKE CONNECT ON DATABASE escola FROM algumUsuarioAi;
