@@ -1,0 +1,1 @@
+-- atribuir senha a usuários
