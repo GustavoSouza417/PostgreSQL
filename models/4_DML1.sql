@@ -1,3 +1,5 @@
+-- observação: os valores do INSERT só funcionam com aspas simples
+
 -- inserindo os coordenadores
 INSERT INTO professor (pro_nome, pro_email, pro_coordenador) VALUES
 ('Coordenador1', 'coordenador1@gmail.com', NULL),
