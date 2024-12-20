@@ -21,3 +21,9 @@ INSERT INTO curso (cur_nome, pro_coordenador_id) VALUES
 ('Análise e Desenvolvimento de Sistemas', 1),
 ('Segurança da Informação', 2),
 ('Ciência de Dados', 3);
+
+-- inserindo as disciplinas
+INSERT INTO disciplina (dis_nome, pro_id, cur_id) VALUES
+('Programação Orientada a Objetos', 4, 1),
+('Fator Humano', 5, 2),
+('Processamento de Linguagem Natural', 6, 3);
