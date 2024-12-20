@@ -22,7 +22,8 @@ INSERT INTO professor (pro_nome, pro_email, pro_coordenador) VALUES
 INSERT INTO curso (cur_nome, pro_coordenador_id) VALUES
 ('Análise e Desenvolvimento de Sistemas', 1),
 ('Segurança da Informação', 2),
-('Ciência de Dados', 3);
+('Ciência de Dados', 3),
+('Curso a ser excluído', 1);
 
 -- inserindo as disciplinas
 INSERT INTO disciplina (dis_nome, pro_id, cur_id) VALUES
