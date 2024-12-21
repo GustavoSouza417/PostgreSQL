@@ -3,10 +3,11 @@
 -- - A nível de usuário
 -- - Banco de dados;
 -- - Schema;
--- - Objetos (os objetos também tem suas subclassificações de hierarquia)
+-- - Objetos;
+-- - Sub-hierarquias para cada objeto.
 
 -- ao remover permissões de maior hierarquia
--- você pode remover todas as permissões abaixo
+-- você pode remover todas as permissões abaixo, a depender do que fizer
 
 -- aliás, cada nível de hierarquia possui seu conjunto de privilégios
 -- você pode bloquear cada elemento do conjunto individualmente
@@ -14,7 +15,21 @@
 
 
 
--- A nível de usuário (é tudo que usa ALTER)
+-- criação de usuário
+CREATE ROLE Lino;
+
+-- a nível de usuário (é tudo que usa ALTER)
+ALTER ROLE Lino PASSWORD '1234';
+ALTER ROLE Lino NOINHERIT;
+ALTER ROLE Lino NOSUPERUSER;
+ALTER ROLE Lino VALID UNTIL '10/01/2025';
+ALTER ROLE Lino NOLOGIN;
+ALTER ROLE Lino NOCREATEDB;
+ALTER ROLE Lino NOCREATEROLE;
+-- etc.
+
+-- a nível de banco de dados
+REVOKE CREATE ON DATABASE escola FROM Lino;
 
 
 
