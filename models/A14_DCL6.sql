@@ -1,32 +1,38 @@
--- você pode atribuir múltiplas ROLEs para usuários
--- se as permissões das ROLEs forem conflitantes
+-- você pode atribuir uma ou mais ROLEs para usuários, como uma herança
+-- assim, tudo que a outra ROLE tem de permissões passa para a outra ROLE
+-- se duas ROLEs concederem permissões para uma terceira ROLE
+-- e elas tiverem permissões conflitantes
 -- o PostgreSQL sempre optará pela permissão de concessão
 
 -- criando os padrões de usuário
 CREATE ROLE administrador;
+CREATE ROLE fornecedor;
 CREATE ROLE tecnico;
 CREATE ROLE cliente;
 
 -- criando os usuários
-CREATE USER user1;
-CREATE USER user2;
-CREATE USER user3;
-CREATE USER user4;
-CREATE USER user5;
-CREATE USER user6;
+CREATE ROLE Gabriel;
+CREATE ROLE Gabriela;
 
 -- configuração do padrão de usuário "administrador"
-ALTER ROLE administrador WITH SUPERUSER;
+ALTER ROLE administrador SUPERUSER;
+
+-- configuração do padrão de usuário "fornecedor"
+GRANT SELECT ON ALL TABLES IN SCHEMA public TO fornecedor;
 
 -- configuração do padrão de usuário "técnico"
 GRANT CONNECT ON DATABASE escola TO tecnico;
 GRANT INSERT, SELECT ON ALL TABLES IN SCHEMA public TO tecnico;
 
+-- configuração do padrão de usuário "cliente"
+REVOKE CONNECT ON DATABASE escola FROM cliente;
+REVOKE INSERT, SELECT ON ALL TABLES IN SCHEMA public FROM cliente;
 
--- atribuindo as ROLEs aos usuários
-GRANT administrador TO user1;
-GRANT administrador TO user2;
-GRANT tecnico TO user3;
-GRANT tecnico TO user4;
-GRANT cliente TO user5;
-GRANT cliente TO user6;
+-- atribuindo uma ROLE a um usuário
+GRANT administrador TO Gabriel;
+
+-- atribuindo múltiplas ROLEs a um usuário
+GRANT fornecedor, tecnico TO Gabriel;
+
+-- atribuindo múltiplas ROLEs conflitantes a um usuário
+GRANT tecnico, cliente TO Gabriela;
