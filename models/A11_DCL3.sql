@@ -29,29 +29,5 @@ ALTER ROLE algumUsuarioAi WITH LOGIN;
 ALTER ROLE algumUsuarioAi WITH CREATEDB;
 ALTER ROLE algumUsuarioAi WITH CREATEROLE;
 
- 
-
-
-
-
-
-
--- remove todas as permissões do usuário "algumUsuarioAi"
-REVOKE CONNECT ON DATABASE escola FROM algumUsuarioAi;
-REVOKE ALL PRIVILEGES ON ALL TABLES IN SCHEMA public FROM algumUsuarioAi;
-REVOKE ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA public FROM algumUsuarioAi;
-REVOKE ALL PRIVILEGES ON ALL FUNCTIONS IN SCHEMA public FROM algumUsuarioAi;
-
--- remove todas as permissões do usuário "Gabrielzinho"
-REVOKE ALL PRIVILEGES ON ALL TABLES IN SCHEMA public FROM Gabrielzinho;
-REVOKE ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA public FROM Gabrielzinho;
-REVOKE ALL PRIVILEGES ON ALL FUNCTIONS IN SCHEMA public FROM Gabrielzinho;
-
--- permissões que o usuário "Ferdinando" possui
-GRANT CONNECT ON DATABASE escola TO Ferdinando;
-GRANT INSERT ON curso TO Ferdinando;
-GRANT DELETE ON curso TO Ferdinando;
-GRANT UPDATE ON curso TO Ferdinando;
-
 -- você também pode configurar permissões de usuários sobre Views, Procedures e afins
 -- você também pode configurar permissões sobre as próprias Views, Procedures e afins
