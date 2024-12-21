@@ -47,4 +47,11 @@ REVOKE EXECUTE ON ALL FUNCTIONS IN SCHEMA public FROM Lino;
 -- a nível de tipos de objetos (removendo todas as permissões)
 REVOKE ALL PRIVILEGES ON ALL TABLES IN SCHEMA public FROM Lino;
 REVOKE ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA public FROM Lino;
-REVOKE ALL PRIVILEGES ON ALL FUNCTIONS IN SCHEMA public FROM Lino;
+REVOKE ALL PRIVILEGES ON ALL FUNCTIONS IN SCHEMA public FROM Lino; -- abrange Procedures e Functions
+
+-- a nível de objetos (removendo só algumas permissões)
+REVOKE TRUNCATE ON TABLE professor FROM Lino;
+REVOKE TRIGGER ON TABLE professor FROM Lino;
+
+-- a nível de objetos (removendo todas as permissões)
+REVOKE ALL PRIVILEGES ON TABLE professor FROM Lino;
