@@ -1,5 +1,6 @@
 -- existem níveis de permissão
 -- as permissões são divididas entre permissões de:
+-- - A nível de usuário
 -- - Banco de dados;
 -- - Schema;
 -- - Objetos (os objetos também tem suas subclassificações de hierarquia)
@@ -10,6 +11,17 @@
 -- aliás, cada nível de hierarquia possui seu conjunto de privilégios
 -- você pode bloquear cada elemento do conjunto individualmente
 -- ou pode bloquear tudo com "ALL PRIVILEGES"
+
+
+
+-- A nível de usuário (é tudo que usa ALTER)
+
+
+
+
+
+
+
 
 -- criação de usuário
 CREATE ROLE NaoAcessaNada;
