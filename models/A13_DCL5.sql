@@ -26,14 +26,15 @@ ALTER ROLE Lino VALID UNTIL '10/01/2025';
 ALTER ROLE Lino NOLOGIN;
 ALTER ROLE Lino NOCREATEDB;
 ALTER ROLE Lino NOCREATEROLE;
--- etc.
+-- não é possível remover todos os privilégios de uma vez
 
 -- a nível de banco de dados
 REVOKE CREATE ON DATABASE escola FROM Lino;
+REVOKE TEMPORARY ON DATABASE escola FROM Lino; -- impede a criação de tabelas temporárias
+REVOKE CONNECT ON DATABASE escola FROM Lino;
+REVOKE ALL PRIVILEGES ON DATABASE escola FROM Lino; -- removendo todos os privilégios a nível banco de dados de uma vez
 
-
-
-
+-- a nível de schema
 
 
 
