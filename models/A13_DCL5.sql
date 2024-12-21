@@ -3,8 +3,8 @@
 -- - A nível de usuário
 -- - Banco de dados;
 -- - Schema;
--- - Objetos;
--- - Sub-hierarquias para cada objeto.
+-- - Tipos de Objetos;
+-- - Objetos.
 
 -- ao remover permissões de maior hierarquia
 -- você pode remover todas as permissões abaixo, a depender do que fizer
@@ -35,34 +35,16 @@ REVOKE CONNECT ON DATABASE escola FROM Lino;
 REVOKE ALL PRIVILEGES ON DATABASE escola FROM Lino; -- removendo todos os privilégios a nível banco de dados de uma vez
 
 -- a nível de schema
+REVOKE USAGE ON SCHEMA public FROM Lino; -- impede o uso de objetos desse schema
+REVOKE CREATE ON SCHEMA public FROM Lino;
+REVOKE ALL PRIVILEGES ON SCHEMA public FROM Lino; -- remove todos os privilégios a nível do schema
 
+-- a nível de tipos de objetos (removendo só algumas permissões)
+REVOKE SELECT, UPDATE, TRUNCATE ON ALL TABLES IN SCHEMA public FROM Lino;
+REVOKE EXECUTE ON ALL FUNCTIONS IN SCHEMA public FROM Lino;
+-- etc.
 
-
-
--- criação de usuário
-CREATE ROLE NaoAcessaNada;
-
--- a melhor forma de bloquear um acesso de um usuário
--- é removendo a permissão dele de conexão
-REVOKE 
-
--- comando para remover todas as permissões
-REVOKE ALL PRIVILEGES ON SCHEMA public FROM NaoAcessaNada;
-
-
--- remove todas as permissões do usuário "algumUsuarioAi"
-REVOKE CONNECT ON DATABASE escola FROM algumUsuarioAi;
-REVOKE ALL PRIVILEGES ON ALL TABLES IN SCHEMA public FROM algumUsuarioAi;
-REVOKE ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA public FROM algumUsuarioAi;
-REVOKE ALL PRIVILEGES ON ALL FUNCTIONS IN SCHEMA public FROM algumUsuarioAi;
-
--- remove todas as permissões do usuário "Gabrielzinho"
-REVOKE ALL PRIVILEGES ON ALL TABLES IN SCHEMA public FROM Gabrielzinho;
-REVOKE ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA public FROM Gabrielzinho;
-REVOKE ALL PRIVILEGES ON ALL FUNCTIONS IN SCHEMA public FROM Gabrielzinho;
-
--- permissões que o usuário "Ferdinando" possui
-GRANT CONNECT ON DATABASE escola TO Ferdinando;
-GRANT INSERT ON curso TO Ferdinando;
-GRANT DELETE ON curso TO Ferdinando;
-GRANT UPDATE ON curso TO Ferdinando;
+-- a nível de tipos de objetos (removendo todas as permissões)
+REVOKE ALL PRIVILEGES ON ALL TABLES IN SCHEMA public FROM Lino;
+REVOKE ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA public FROM Lino;
+REVOKE ALL PRIVILEGES ON ALL FUNCTIONS IN SCHEMA public FROM Lino;
